@@ -6,15 +6,15 @@ import (
 )
 
 func addMusicSheetRoutes(rg *gin.RouterGroup) {
-	users := rg.Group("/users")
+	users := rg.Group("/musicsheets")
 
-	users.GET("/musicsheets/id", func(c *gin.Context) {
+	users.GET("/musicsheetId", func(c *gin.Context) {
 		c.JSON(http.StatusOK, "get")
 	})
-	users.POST("/musicsheets", func(c *gin.Context) {
+	users.POST("/", func(c *gin.Context) {
 		c.JSON(http.StatusOK, "post")
 	})
-	users.DELETE("/musicsheets/id", func(c *gin.Context) {
+	users.DELETE("/musicsheetid", func(c *gin.Context) {
 		c.JSON(http.StatusOK, "delete")
 	})
 }
