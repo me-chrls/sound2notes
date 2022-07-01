@@ -110,7 +110,7 @@ func TestDeleteMusicSheetHandlerNotFound(t *testing.T) {
 	mockResponse := `{"error":"Object with the given id does not exist"}`
 
 	r := SetUpRouter()
-	r.GET("/musicSheets/:musicSheetId", handler.GetMusicSheetHandler)
+	r.GET("/musicSheets/:musicSheetId", handler.DeleteMusicSheetHandler)
 	req, _ := http.NewRequest("GET", "/musicSheets/5", nil)
 	w := httptest.NewRecorder()
 	r.ServeHTTP(w, req)
