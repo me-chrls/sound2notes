@@ -1,0 +1,15 @@
+version: '3.9'
+
+services:
+  mysql:
+    container_name: sound2notes
+    image: mysql:8
+    ports:
+      - 3333:3306
+    volumes:
+      - ~/apps/mysql:/var/lib/mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=S3cret
+      - MYSQL_PASSWORD=An0thrS3crt
+      - MYSQL_USER=sound2notes_user
+      - MYSQL_DATABASE=sound2notes_db
