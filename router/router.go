@@ -9,10 +9,14 @@ import (
 
 var (
 	router = gin.Default()
+	port   = ":8080"
 )
 
 func Run() {
-	err := router.SetTrustedProxies([]string{"nil"}) // https://pkg.go.dev/github.com/gin-gonic/gin#readme-don-t-trust-all-proxies
+	utils.SetupIp()
+	utils.SetPort(port)
+
+	err := router.SetTrustedProxies(nil) // https://pkg.go.dev/github.com/gin-gonic/gin#readme-don-t-trust-all-proxies
 	if err != nil {
 		log.Fatal("SetTrustedProxies:\n", err)
 		return
@@ -21,9 +25,8 @@ func Run() {
 	getRoutes()
 
 	upload.ConfigureUpload(router)
-	utils.SetupIp()
 
-	router.Run(":8080")
+	router.Run(utils.Port)
 }
 
 func getRoutes() {

@@ -9,6 +9,7 @@ import (
 func ConfigureUpload(router *gin.Engine) {
 	// Set a lower memory limit for multipart forms (default is 32 MiB)
 	router.MaxMultipartMemory = 16 << 20 // 16MiB
+	router.StaticFS("/uploads", http.Dir("uploads"))
 }
 
 func Upload(context *gin.Context, fileKey string) bool {

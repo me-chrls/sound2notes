@@ -7,7 +7,8 @@ import (
 )
 
 var (
-	IP string
+	IP   string
+	Port string
 )
 
 func SetupIp() {
@@ -20,4 +21,7 @@ func SetupIp() {
 			fmt.Println("IPv4: ", IP)
 		}
 	}
+}
+func SetPort(port string) {
+	Port = port
 }
